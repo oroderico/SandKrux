@@ -8666,10 +8666,6 @@
 		(uuid "5374e759-251c-492a-936b-a44663c76217")
 	)
 	(no_connect
-		(at 340.36 176.53)
-		(uuid "5c4a9094-7825-47a3-a941-f805c7e80166")
-	)
-	(no_connect
 		(at 340.36 146.05)
 		(uuid "647b44db-619f-4499-ab21-16f5ac722c31")
 	)
@@ -9076,6 +9072,16 @@
 			(type default)
 		)
 		(uuid "10047e6e-4003-4458-826c-35e8c6386c20")
+	)
+	(wire
+		(pts
+			(xy 340.36 176.53) (xy 354.33 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10977324-7378-49dd-a018-5ffed9a4c657")
 	)
 	(wire
 		(pts
@@ -13237,6 +13243,16 @@
 		)
 		(uuid "1b99496e-611b-4738-92cb-76129c24090c")
 	)
+	(label "IO_7"
+		(at 347.98 176.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1d7aeac0-2b57-46fc-bcd6-9dec16ba444a")
+	)
 	(label "3V3"
 		(at 251.46 29.21 0)
 		(effects
@@ -15036,6 +15052,17 @@
 			(justify right)
 		)
 		(uuid "434c01fb-6a44-4341-82d7-75ccdcd607a1")
+	)
+	(hierarchical_label "PRINTER"
+		(shape bidirectional)
+		(at 354.33 176.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4390eaf7-5ed6-40bc-9bb2-c7be17da2528")
 	)
 	(hierarchical_label "SPI1_MISO"
 		(shape bidirectional)

@@ -6624,6 +6624,160 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "easyeda2kicad:SM02B-PASS-TBT(LF)(SN)"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "CN"
+				(at 0 11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SM02B-PASS-TBT(LF)(SN)"
+				(at 0 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "easyeda2kicad:CONN-SMD_SM02B-PASS-TBT"
+				(at 0 -13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/Wire-To-Board-Wire-To-Wire-Connector_JST-Sales-America-SM02B-PASS-TBT-LF-SN_C265417.html"
+				(at 0 -16.51 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC Part" "C265417"
+				(at 0 -19.05 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SM02B-PASS-TBT(LF)(SN)_0_1"
+				(rectangle
+					(start -2.54 3.81)
+					(end 5.08 -3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center -1.27 2.54)
+					(radius 0.38)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -5.08 1.27 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -5.08 -1.27 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 3.81 6.35 270)
+					(length 2.54)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 3.81 -6.35 90)
+					(length 2.54)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "easyeda2kicad:TL3330AF130QG"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -7638,6 +7792,18 @@
 		(uuid 2e4ec7e9-2341-4c14-af08-2770e5e2fab0)
 	)
 	(rectangle
+		(start 519.43 12.7)
+		(end 579.12 63.5)
+		(stroke
+			(width 0.508)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 5ed4b02e-55ca-41e0-ba23-a4eb7510af83)
+	)
+	(rectangle
 		(start 260.35 12.7)
 		(end 434.34 162.56)
 		(stroke
@@ -7864,6 +8030,18 @@
 			)
 		)
 		(uuid "df779b20-bf76-4124-a563-b826e20e7a54")
+	)
+	(text "CNC AND\nPRINTER\n"
+		(exclude_from_sim no)
+		(at 546.608 22.606 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 1.016)
+				(bold yes)
+			)
+		)
+		(uuid "f65a92f9-6e1d-4fce-83b2-1611363cd506")
 	)
 	(junction
 		(at 392.43 261.62)
@@ -9038,6 +9216,16 @@
 			(type default)
 		)
 		(uuid "1dde748b-a146-43f0-bed8-ef84e63ffbb4")
+	)
+	(wire
+		(pts
+			(xy 172.72 228.6) (xy 185.42 228.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e5620da-f771-40b9-acbd-e0fa1a671149")
 	)
 	(wire
 		(pts
@@ -10538,6 +10726,16 @@
 			(type default)
 		)
 		(uuid "6eb4a33c-4200-49c1-9888-22f2ce547181")
+	)
+	(wire
+		(pts
+			(xy 528.32 41.91) (xy 537.21 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6fe85ad9-39ba-44af-abb2-4e4dc3b20116")
 	)
 	(wire
 		(pts
@@ -14379,6 +14577,16 @@
 		)
 		(uuid "dcff5e88-d040-4ff3-8bfa-ce997369ab62")
 	)
+	(label "PRINTER"
+		(at 528.32 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "debff0ff-12db-4a33-be7b-cca7732a464f")
+	)
 	(label "3V3"
 		(at 353.06 52.07 0)
 		(effects
@@ -14538,6 +14746,16 @@
 			(justify right bottom)
 		)
 		(uuid "ff4b6bcc-ae7b-4773-810e-fe4b588f3631")
+	)
+	(label "PRINTER"
+		(at 185.42 228.6 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ffe69b2b-cb18-41da-bf3e-141c3c4472fa")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -16805,86 +17023,6 @@
 			(project "SandKrux"
 				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
 					(reference "R58")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "easyeda2kicad:1.25mm-2Psocket")
-		(at 406.4 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "29d73d85-6298-4e16-bbe9-3de944dac267")
-		(property "Reference" "CN2"
-			(at 407.67 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1.25mm-2P socket"
-			(at 407.67 207.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "easyeda2kicad:CONN-SMD_1.25T-2P"
-			(at 406.4 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://lcsc.com/product-detail/1-25T-Connectors_1-25mm-2P-socket_C43462.html"
-			(at 406.4 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 406.4 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part" "C43462"
-			(at 406.4 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9ad336ec-670f-4dc3-a031-c5f8d3a04e5f")
-		)
-		(pin "2"
-			(uuid "35b7fe31-564c-4e9a-ad38-1f7071148d63")
-		)
-		(pin "0"
-			(uuid "65e05e0d-6eaa-43a1-999a-1a2f95c61af0")
-		)
-		(instances
-			(project ""
-				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
-					(reference "CN2")
 					(unit 1)
 				)
 			)
@@ -19614,6 +19752,171 @@
 		)
 	)
 	(symbol
+		(lib_id "easyeda2kicad:1.25mm-2Psocket")
+		(at 406.4 213.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f7df538-a40a-4ed3-84d8-dc67f284e093")
+		(property "Reference" "CN3"
+			(at 407.67 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1.25mm-2P socket"
+			(at 407.67 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:CONN-SMD_1.25T-2P"
+			(at 406.4 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/1-25T-Connectors_1-25mm-2P-socket_C43462.html"
+			(at 406.4 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 406.4 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C43462"
+			(at 406.4 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "12b7375e-e8e6-4c03-ac1c-538e5aade501")
+		)
+		(pin "2"
+			(uuid "bf069f55-8180-4f79-a2f7-d5edd906fe5e")
+		)
+		(pin "0"
+			(uuid "ef6aef31-799b-414c-88d3-718af28b13c1")
+		)
+		(instances
+			(project "SandKrux"
+				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
+					(reference "CN3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "easyeda2kicad:SM02B-PASS-TBT(LF)(SN)")
+		(at 542.29 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f9dfffc-77b1-4623-a647-0cf4024290e5")
+		(property "Reference" "CN2"
+			(at 548.64 41.9099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SM02B-PASS-TBT(LF)(SN)"
+			(at 548.64 44.4499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "easyeda2kicad:CONN-SMD_SM02B-PASS-TBT"
+			(at 542.29 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://lcsc.com/product-detail/Wire-To-Board-Wire-To-Wire-Connector_JST-Sales-America-SM02B-PASS-TBT-LF-SN_C265417.html"
+			(at 542.29 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 542.29 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C265417"
+			(at 542.29 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "44971252-d567-4ae1-a8d1-a4c0aa2c8521")
+		)
+		(pin "3"
+			(uuid "a37a9304-48dd-43cd-9dae-54b50b77c9be")
+		)
+		(pin "1"
+			(uuid "33ee48fc-9c78-4ae1-980a-fad0ff67fd06")
+		)
+		(pin "4"
+			(uuid "42c7a8aa-8978-4a11-a51d-c1c4fd7c98a1")
+		)
+		(instances
+			(project "SandKrux"
+				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
+					(reference "CN2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 452.12 187.96 0)
 		(mirror x)
@@ -20617,6 +20920,73 @@
 			(project "SandKrux"
 				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
 					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 546.1 36.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "771befb0-9336-4fe3-ba22-ff17abf45995")
+		(property "Reference" "#PWR090"
+			(at 552.45 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 549.91 36.8299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 546.1 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 546.1 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 546.1 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9782bec3-8d47-418d-9832-0c472630c91a")
+		)
+		(instances
+			(project "SandKrux"
+				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
+					(reference "#PWR090")
 					(unit 1)
 				)
 			)
@@ -22920,6 +23290,72 @@
 			(project "SandKrux"
 				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
 					(reference "C65")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 537.21 44.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9e3feed-853f-4a89-9839-b7d75b1d8b33")
+		(property "Reference" "#PWR089"
+			(at 537.21 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 537.21 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 537.21 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 537.21 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 537.21 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6b9472b5-508d-4731-b0fe-ad07164f402d")
+		)
+		(instances
+			(project "SandKrux"
+				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
+					(reference "#PWR089")
 					(unit 1)
 				)
 			)
@@ -27040,6 +27476,73 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 546.1 49.53 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f2932e51-ca06-4875-877d-0a8ef2637a28")
+		(property "Reference" "#PWR088"
+			(at 552.45 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 549.91 49.5299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 546.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 546.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 546.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "031c4622-e4b2-43c2-a3de-61e17b50f254")
+		)
+		(instances
+			(project "SandKrux"
+				(path "/0986b4b2-29ef-45bb-b940-2ffd44ad7a0e"
+					(reference "#PWR088")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 369.57 100.33 0)
 		(mirror y)
 		(unit 1)
@@ -28000,6 +28503,16 @@
 		(pin "BOOT(53)" bidirectional
 			(at 172.72 220.98 0)
 			(uuid "20104c1a-5d12-45db-ac5b-7e8a568eda04")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "PRINTER" bidirectional
+			(at 172.72 228.6 0)
+			(uuid "2de05c13-5958-424a-ac52-424c38e47404")
 			(effects
 				(font
 					(size 1.27 1.27)
