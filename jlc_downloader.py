@@ -35,9 +35,9 @@ def get_venv_python(venv_dir: Path) -> Path:
     return venv_dir / "bin" / "python"
 
 
-def module_available(python_executable: str | Path) -> bool:
+def runner_available(easyeda_runner: list[str]) -> bool:
     result = subprocess.run(
-        [str(python_executable), "-c", "import easyeda2kicad"],
+        [*easyeda_runner, "--help"],
         check=False,
         capture_output=True,
         text=True,
@@ -58,33 +58,70 @@ def create_and_install_venv(venv_dir: Path) -> list[str] | None:
             return None
 
     print("Installing easyeda2kicad (first run may take a moment)...")
+    bootstrap = subprocess.run(
+        [
+            str(python_in_venv),
+            "-m",
+            "pip",
+            "install",
+            "--upgrade",
+            "pip",
+            "setuptools",
+            "wheel",
+        ],
+        check=False,
+    )
+    if bootstrap.returncode != 0:
+        print("Failed to bootstrap pip in local virtual environment.")
+        return None
+
     install = subprocess.run(
-        [str(python_in_venv), "-m", "pip", "install", "easyeda2kicad"], check=False
+        [
+            str(python_in_venv),
+            "-m",
+            "pip",
+            "install",
+            "--upgrade",
+            "typing_extensions>=4.14.1",
+            "pydantic>=2.11",
+            "pydantic-core>=2.33",
+            "easyeda2kicad",
+        ],
+        check=False,
     )
     if install.returncode != 0:
         print("Failed to install easyeda2kicad in local virtual environment.")
         return None
 
-    if not module_available(python_in_venv):
+    easyeda_runner = [str(python_in_venv), "-m", "easyeda2kicad"]
+    if not runner_available(easyeda_runner):
         print("easyeda2kicad is still unavailable after installation.")
         return None
 
-    return [str(python_in_venv), "-m", "easyeda2kicad"]
+    return easyeda_runner
 
 
 def resolve_easyeda_runner(script_dir: Path) -> list[str] | None:
-    if module_available(sys.executable):
-        return [sys.executable, "-m", "easyeda2kicad"]
-
-    cli_cmd = shutil.which("easyeda2kicad")
-    if cli_cmd:
-        return [cli_cmd]
-
     venv_dir = script_dir / ".easyeda2kicad-venv"
     python_in_venv = get_venv_python(venv_dir)
+    venv_runner = [str(python_in_venv), "-m", "easyeda2kicad"]
 
-    if python_in_venv.exists() and module_available(python_in_venv):
-        return [str(python_in_venv), "-m", "easyeda2kicad"]
+    if python_in_venv.exists():
+        if runner_available(venv_runner):
+            return venv_runner
+
+        print("Local easyeda2kicad venv seems broken. Reinstalling dependencies...")
+        repaired_runner = create_and_install_venv(venv_dir)
+        if repaired_runner is not None:
+            return repaired_runner
+
+    sys_runner = [sys.executable, "-m", "easyeda2kicad"]
+    if runner_available(sys_runner):
+        return sys_runner
+
+    cli_cmd = shutil.which("easyeda2kicad")
+    if cli_cmd and runner_available([cli_cmd]):
+        return [cli_cmd]
 
     print()
     print("easyeda2kicad was not found in this Python environment.")
@@ -130,6 +167,89 @@ def get_output_dir() -> Path | None:
     return output_dir
 
 
+def get_output_dir_from_explorer(initial_dir: Path) -> Path | None:
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+    except Exception:
+        print("File explorer is unavailable (tkinter not installed).")
+        return None
+
+    try:
+        root = tk.Tk()
+        root.withdraw()
+        root.update()
+        selected = filedialog.askdirectory(
+            title="Select destination folder",
+            initialdir=str(initial_dir),
+            mustexist=True,
+        )
+        root.destroy()
+    except Exception:
+        print("Could not open the file explorer.")
+        return None
+
+    if not selected:
+        print("No folder selected.")
+        return None
+
+    return Path(selected).expanduser()
+
+
+def get_output_dir_from_terminal_browser(root_dir: Path) -> Path | None:
+    root_dir = root_dir.resolve()
+    current_dir = root_dir
+
+    while True:
+        print()
+        print("Terminal folder browser")
+        print(f'Root:    "{root_dir}"')
+        print(f'Current: "{current_dir}"')
+
+        try:
+            subdirs = sorted(
+                [p for p in current_dir.iterdir() if p.is_dir()],
+                key=lambda p: p.name.lower(),
+            )
+        except OSError:
+            print("Could not read this folder.")
+            return None
+
+        if subdirs:
+            for idx, folder in enumerate(subdirs, start=1):
+                print(f"[{idx}] {folder.name}")
+        else:
+            print("(No subfolders)")
+
+        print("[c] Confirm current folder")
+        if current_dir != root_dir:
+            print("[b] Back")
+        print("[q] Cancel")
+
+        choice = input("Select an option: ").strip().lower()
+        if choice == "c":
+            return current_dir
+        if choice == "q":
+            return None
+        if choice == "b":
+            if current_dir == root_dir:
+                print("You are already at root folder.")
+                continue
+            current_dir = current_dir.parent
+            continue
+
+        if not choice.isdigit():
+            print("Invalid option.")
+            continue
+
+        index = int(choice) - 1
+        if index < 0 or index >= len(subdirs):
+            print("Invalid folder number.")
+            continue
+
+        current_dir = subdirs[index]
+
+
 def run_easyeda2kicad(
     easyeda_runner: list[str], lcsc_id: str, output_dir: Path | None
 ) -> int:
@@ -158,12 +278,23 @@ def main() -> int:
         return 1
 
     mode = prompt_choice(
-        "Where to save? [1]=Default folder  [2]=Project folder : ", {"1", "2"}
+        "Where to save? [1]=Default folder  [2]=Project folder  [3]=Browse folders : ",
+        {"1", "2", "3"},
     )
 
     output_dir: Path | None = None
     if mode == "2":
         output_dir = get_output_dir()
+        if output_dir is None:
+            input("Press Enter to exit...")
+            return 1
+    elif mode == "3":
+        output_dir = get_output_dir_from_explorer(script_dir)
+        if output_dir is None:
+            print("Switching to terminal folder browser...")
+            output_dir = get_output_dir_from_terminal_browser(script_dir)
+        if output_dir is None and prompt_yes_no("Fallback to manual path? [Y]=Yes [N]=No : "):
+            output_dir = get_output_dir()
         if output_dir is None:
             input("Press Enter to exit...")
             return 1
