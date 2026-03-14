@@ -1,4 +1,13 @@
-﻿# SandKrux
+Este repositório é um fork do projeto original criado por [sandman21vs](https://github.com/sandman21vs).
+
+Repositório original:
+https://github.com/sandman21vs/SandKrux
+
+Crédito integral ao autor original. Este mirror foi publicado para fins de preservação/disponibilidade do projeto.
+
+Todas as licenças, créditos e avisos originais foram mantidos.
+ 
+# SandKrux
 
 Placa de desenvolvimento baseada no chip **K210**, com entradas para **touch**, **câmera** e **LCD grande**, criada especificamente para rodar o firmware **Krux**.
 
